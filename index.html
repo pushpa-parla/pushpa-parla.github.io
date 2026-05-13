@@ -132,9 +132,10 @@ section{
 
 /* SKILLS */
 .skills-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:15px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;              /* MAIN SPACING BETWEEN BADGES */
+  justify-content:flex-start;
 }
 
 .skill-card h3{
@@ -242,8 +243,55 @@ body.dark .theme-toggle{
   background:#1e293b;
   color:#f8fafc;
 }
+.skill-badges{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+  justify-content:flex-start; /* better auto flow */
+}
 
+/* AUTO-SIZE BADGES */
+.badge{
+  display:inline-flex;        /* IMPORTANT */
+  align-items:center;
+  gap:5px;
+
+  width:auto;                 /* auto width */
+  max-width:max-content;      /* prevents stretching */
+
+  padding:4px 10px;
+  border-radius:14px;
+
+  font-size:12px;
+  font-weight:500;
+
+  border:1px solid #e2e8f0;
+  background:#ffffff;
+  color:#0f172a;
+
+  white-space:nowrap;         /* prevents text wrap */
+}
+
+/* ICON SIZE */
+.badge i{
+  font-size:14px;
+}
+
+/* HOVER */
+.badge:hover{
+  transform:translateY(-2px);
+  box-shadow:0 4px 10px rgba(0,0,0,0.08);
+}
+
+/* DARK MODE */
+body.dark .badge{
+  background:#1e293b;
+  color:#f8fafc;
+  border:1px solid #334155;
+}
 </style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/devicon.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-icons-font@v5/font/simple-icons.min.css">
 </head>
 <script>
 function toggleTheme(){
@@ -319,20 +367,42 @@ window.onload = function(){
 
 <div class="skills-grid">
 
-<div class="card skill-card">
-<h3>Backend</h3>
-<p>Laravel, CodeIgniter, ZF2, CakePHP, Symfony, REST APIs, PHP OOP</p>
-</div>
+   <!-- Backend -->
+  <div class="badge"><i class="devicon-laravel-plain colored"></i> Laravel</div>
+  <div class="badge"><i class="devicon-php-plain colored"></i> PHP</div>
+  <div class="badge"><i class="devicon-codeigniter-plain colored"></i> CodeIgniter</div>
+  <div class="badge">ZF2</div>
+  <div class="badge">CakePHP</div>
+  <div class="badge">
+  <i class="devicon-symfony-original colored"></i> Symfony
+  </div>
+  <div class="badge"><i class="devicon-nodejs-plain colored"></i> Node.js</div>
+  <div class="badge">REST API</div>
 
-<div class="card skill-card">
-<h3>Frontend</h3>
-<p>React, AngularJS, Vue.js, JavaScript</p>
-</div>
+  <!-- Frontend -->
+  <div class="badge"><i class="devicon-react-original colored"></i> React</div>
+  <div class="badge"><i class="devicon-angularjs-plain colored"></i> AngularJS</div>
+  <div class="badge"><i class="devicon-vuejs-plain colored"></i> Vue.js</div>
+  <div class="badge"><i class="devicon-javascript-plain colored"></i> JS</div>
+  <div class="badge"><i class="devicon-html5-plain colored"></i> HTML5</div>
+  <div class="badge"><i class="devicon-css3-plain colored"></i> CSS3</div>
+  <div class="badge"><i class="devicon-bootstrap-plain colored"></i> Bootstrap</div>
+  <div class="badge"><i class="devicon-jquery-plain colored"></i> jQuery</div>
 
-<div class="card skill-card">
-<h3>Database & Tools</h3>
-<p>MySQL, GitHub, AWS, Docker</p>
-</div>
+  <!-- Database -->
+  <div class="badge"><i class="devicon-mysql-plain colored"></i> MySQL</div>
+  <div class="badge"><i class="devicon-mongodb-plain colored"></i> MongoDB</div>
+
+  <!-- Cloud -->
+  <div class="badge"><i class="si si-amazonaws"></i> AWS</div>
+
+  <!-- Tools -->
+  <div class="badge"><i class="devicon-git-plain colored"></i> Git</div>
+
+  <!-- Others -->
+  <div class="badge"><i class="si si-wordpress"></i> WordPress</div>
+  <div class="badge"><i class="si si-drupal"></i> Drupal</div>
+  <div class="badge">Ionic Framework</div>
 
 </div>
 
@@ -378,7 +448,7 @@ window.onload = function(){
 	  </p>
 
 	  <p class="tech">
-		Angular • Laravel • MySQL • JavaScript
+		Angular JS • Laravel • MySQL • JavaScript
 	  </p>
 
 	  <span class="highlight">JWT Security</span>
